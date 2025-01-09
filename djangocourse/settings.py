@@ -53,13 +53,9 @@ MIDDLEWARE = [
 ]
 
 if DEBUG:
-    INSTALLED_APPS += [
-        "debug_toolbar"
-        ]
-    
-    MIDDLEWARE += [
-        "debug_toolbar.middleware.DebugToolbarMiddleware"
-    ]
+    INSTALLED_APPS += ["debug_toolbar"]
+
+    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 
     import socket
 
@@ -120,6 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
