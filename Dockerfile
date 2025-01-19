@@ -1,9 +1,13 @@
 FROM python:3.13.1-bullseye
 
 ENV PYTHONUNBUFFERED=1
+
+RUN apt update
+
 ENV VIRTUAL_ENV=/opt/venv
 ENV PATH="$VIRTUAL_ENV/bin:$HOME/.local/bin:$PATH"
 
+RUN apt install gettext -y
 # Create a virtual environment
 RUN python3 -m venv $VIRTUAL_ENV
 
