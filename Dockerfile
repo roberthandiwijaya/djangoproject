@@ -26,9 +26,10 @@ RUN poetry install --no-root
 
 # Copy project files
 COPY . .
+RUN chmod 755 /code/start-django.sh
 
 # Expose port
 EXPOSE 8000
 
 # Run the application
-ENTRYPOINT ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT [ "/code/start-django.sh" ]
